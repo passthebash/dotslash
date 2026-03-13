@@ -31,15 +31,15 @@ pip3 install -r requirements.txt --break-system-packages
 # Run tool for bloodhound output
 python3 ADExplorerSnapshot.py -m BloodHound /home/kali/Desktop/file.dat
 
-# 
+# Bring up the containers
 cd /home/kali/BloodHound/examples/docker-compose
 docker compose up -d
 
-echo "Going to sleep... give me 15!"
+echo "Going to sleep... give me 15 seconds!"
 sleep 15
+
 # Grab initial password from bloodhound container
-# open location
 open http://127.0.0.1:8080/
 docker logs docker-compose-bloodhound-1 | grep -i "Initial Password"
-open ./ADExplorerSnapshot/
+open /home/kali/ADExplorerSnapshot/
 ```
